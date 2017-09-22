@@ -12,7 +12,7 @@ of `PrivilegeSeparation`. Call graphs by itself are little helpful for code revi
 except for such cases where you struggle to find the IPC and privilege relations between
 all the forked processes. The code that I wrote 12y ago is not working anymore today.
 This document describes why and which hurdles you need to overcome in order to
-produce a valuable call graph for an OpenSSH `sshd` session today.
+produce a valuable call graph for an *OpenSSH* `sshd` session today.
 
 #### Here we go
 
@@ -59,4 +59,5 @@ is for unprivileged calls. Euid 496 is the *seccomp* sandbox user. You will see 
 each one denoting its own process. These are the offspring after the re-exec: *accepting* sshd,
 its child *priv* sshd, sandboxed *net* sshd, *pam* sshd and the user-session sshd holding the pty.
 
+![openssh-7.4p1-sshd-session.jpg](https://github.com/stealth/call-graphs/blob/master/openssh-7.4p1-sshd-session.jpg)
 
